@@ -84,12 +84,17 @@ describe("Tweet", () => {
 
     it("should send a tweet when there's a message and environment variables", done => {
 
-        nock("https://api.twitter.com")
-            .post("/1.1/statuses/update.json")
-            .query({ status: message })
-            .reply(200, { result: "Success!" });
+        nock("https://api.twitter.com", {
+            reqheaders: {
+                authorization: /OAuth oauth_consumer_key="baz"/
+            }
+        }).post(
+            "/1.1/statuses/update.json",
+            `status=Tweet%21&trim_user=true`
+        )
+        .reply(200, { result: "Success!" });
 
-        tweet(message, {
+        tweet("Tweet!", {
             [envKeys[0]]: "foo",
             [envKeys[1]]: "bar",
             [envKeys[2]]: "baz",
