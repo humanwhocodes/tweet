@@ -1,0 +1,50 @@
+{
+  "name": "@humanwhocodes/tweet",
+  "version": "0.0.0",
+  "description": "A CLI for tweeting out messages",
+  "bin": {
+    "tweet": "dist/bin.cjs.js",
+    "@humanwhocodes/tweet": "dist/bin.cjs.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint src/ tests/",
+    "test": "npm run lint && mocha -r esm tests/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanwhocodes/tweet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/humanwhocodes/tweet/issues"
+  },
+  "homepage": "https://github.com/humanwhocodes/tweet#readme",
+  "keywords": [
+    "Twitter",
+    "Tweet",
+    "JavaScript"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/nzakas"
+  },
+  "author": "Nicholas C. Zaks",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "esm": "^3.2.25",
+    "mocha": "^5.2.0",
+    "nock": "^12.0.3",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel-minify": "^9.0.0"
+  },
+  "dependencies": {
+    "@humanwhocodes/env": "^0.3.1",
+    "twitter": "^1.7.1"
+  }
+}
