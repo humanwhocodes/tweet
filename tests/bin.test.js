@@ -14,7 +14,7 @@ import { expect } from "chai";
 // Helpers
 //-----------------------------------------------------------------------------
 
-const command = `node --require esm src/bin.js`;
+const command = "node --require esm src/bin.js";
 
 const envKeys = [
     "TWITTER_ACCESS_TOKEN_KEY",

@@ -90,9 +90,8 @@ describe("Tweet", () => {
             }
         }).post(
             "/1.1/statuses/update.json",
-            `status=Tweet%21&trim_user=true`
-        )
-        .reply(200, { result: "Success!" });
+            "status=Tweet%21&trim_user=true"
+        ).reply(200, { result: "Success!" });
 
         tweet("Tweet!", {
             [envKeys[0]]: "foo",
