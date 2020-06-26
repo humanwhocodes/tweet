@@ -2,10 +2,7 @@
   "name": "@humanwhocodes/tweet",
   "version": "0.0.0",
   "description": "A CLI for tweeting out messages",
-  "bin": {
-    "tweet": "dist/bin.cjs.js",
-    "@humanwhocodes/tweet": "dist/bin.cjs.js"
-  },
+  "bin":  "dist/bin.cjs.js",
   "publishConfig": {
     "access": "public"
   },
