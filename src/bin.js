@@ -3,7 +3,7 @@
  * @author Nicholas C. Zakas
  */
 
- /* eslint-disable no-console */
+/* eslint-disable no-console */
 
 //-----------------------------------------------------------------------------
 // Imports
