@@ -9,7 +9,6 @@
 
 import { execSync } from "child_process";
 import { expect } from "chai";
-import nock from "nock";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -45,7 +44,7 @@ describe("Tweet", () => {
         it("should error when environment variables are missing", () => {
 
             expect(() => {
-                exec(command);
+                exec(`${command} "hi"`);
             }).to.throw(new RegExp(envKeys[0]));
             
         });

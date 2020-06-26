@@ -12,7 +12,7 @@ import { tweet } from "./tweet.js";
 //-----------------------------------------------------------------------------
 // Setup
 //-----------------------------------------------------------------------------
-console.error(process.argv);
+
 if (process.argv.length < 3) {
     console.error("Usage: tweet \"Message to tweet.\"");
     console.error("Missing message to tweet.");
@@ -23,7 +23,9 @@ if (process.argv.length < 3) {
 // Main
 //-----------------------------------------------------------------------------
 
-(async () => {
-    const response = await tweet(process.argv[2], process.env);
-    console.dir(response);
-})();
+tweet(process.argv[2], process.env)
+    .then(response => console.log(JSON.stringify(response, null, 2)))
+    .catch(error => {
+        console.error(error.message);
+        process.exit(1);
+    });
