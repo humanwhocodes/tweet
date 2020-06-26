@@ -12,25 +12,30 @@ A simple CLI for sending tweets. This is intended for use in CI systems such as 
 
 ## Usage
 
-You must have Node.js to use this package. Install using [npm][npm] or [yarn][yarn]:
+You must have Node.js to use this package.
+
+To start, you must have a registered [Twitter application](https://developer.twitter.com/apps). 
+
+Next, define four environment variables:
+
+* `TWITTER_ACCESS_TOKEN_KEY` - your access token
+* `TWITTER_ACCESS_TOKEN_SECRET` - your access token secret
+* `TWITTER_CONSUMER_KEY` - your consumer API key
+* `TWITTER_CONSUMER_SECRET` - your consumer API secret
+
+The CLI will not work without these environment variables. All of these values come from your Twitter application.
+
+Then, you can run the CLI and pass a message on the command line using `npx`:
 
 ```
-npm install @humanwhocodes/tweet
-
-# or
-
-yarn add @nitpik/toolkit
+$ npx @humanwhocodes/tweet "Hello from the command line!"
 ```
 
-Import into your Node.js project:
+If successful, the CLI will output the response from Twitter.
 
-```js
-// CommonJS
-const { NitpikTokenList } = require("@nitpik/toolkit");
+### Testing with dotenv
 
-// ESM
-import { NitpikTokenList } from "@nitpik/toolkit";
-```
+If you'd like to test with [`dotenv`](https://npmjs.com/package/dotenv), define an additional environment variable `TWEET_DOTENV=1` before executing the CLI. This will cause a local `.env` file to be read before executing.
 
 ### Developer Setup
 
