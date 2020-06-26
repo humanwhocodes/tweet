@@ -24,11 +24,17 @@ if (process.env.TWEET_DOTENV === "1") {
     dotenv.config();
 }
 
+/*
+ * Command line arguments will escape \n as \\n, which isn't what we want.
+ * Remove the extra escapes so newlines can be entered on the command line.
+ */
+const message = process.argv[2].replace(/\\n/g, "\n");
+
 //-----------------------------------------------------------------------------
 // Main
 //-----------------------------------------------------------------------------
 
-tweet(process.argv[2], process.env)
+tweet(message, process.env)
     .then(response => console.log(JSON.stringify(response, null, 2)))
     .catch(error => {
         console.error(error.message);
