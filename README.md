@@ -44,7 +44,7 @@ Be sure to set up [GitHub secrets](https://help.github.com/en/actions/configurin
 ```yaml
 jobs:
   tweet:
-    Name: Tweet Something
+    name: Tweet Something
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1

@@ -45,7 +45,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   tweet:
-    Name: Tweet Release
+    name: Tweet Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v1
