@@ -37,6 +37,29 @@ If successful, the CLI will output the response from Twitter.
 
 If you'd like to test with [`dotenv`](https://npmjs.com/package/dotenv), define an additional environment variable `TWEET_DOTENV=1` before executing the CLI. This will cause a local `.env` file to be read before executing.
 
+### Using in a GitHub Workflow
+
+Be sure to set up [GitHub secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for each environment variable. Then, you can configure a job like this:
+
+```yaml
+jobs:
+  tweet:
+    Name: Tweet Something
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: 'npx @humanwhocodes/tweet "Your tweet text"'
+        env:
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+
+
+```
+
 ### Developer Setup
 
 1. Ensure you have [Node.js](https://nodejs.org) 12+ installed
