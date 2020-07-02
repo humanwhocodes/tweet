@@ -39,6 +39,10 @@ const message = process.argv[2].replace(/\\n/g, "\n");
 tweet(message, process.env)
     .then(response => console.log(JSON.stringify(response, null, 2)))
     .catch(error => {
-        console.error(error.message);
+        if (error.message) {
+            console.error(error.message);
+        } else {
+            console.dir(error);
+        }
         process.exit(1);
     });
