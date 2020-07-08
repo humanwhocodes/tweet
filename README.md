@@ -2,7 +2,7 @@
 
 by [Nicholas C. Zakas](https://humanwhocodes.com)
 
-![Node CI](https://github.com/nitpik/toolkit/workflows/Node%20CI/badge.svg)
+![Node CI](https://github.com/humanwhocodes/tweet/workflows/Node%20CI/badge.svg)
 
 If you find this useful, please consider supporting my work with a [donation](https://humanwhocodes.com/donate).
 
