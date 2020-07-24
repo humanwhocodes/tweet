@@ -62,7 +62,7 @@ that you have configured your environment variables with the correct values.
 Here are the lengths of the environment variables provided for reference:\n`);
                     
                     for (const environmentVariable of environmentVariables) {
-                        console.error(environmentVariable, environmentVariable.length);
+                        console.error(environmentVariable, process.env[environmentVariable].length);
                     }
 
                 }
