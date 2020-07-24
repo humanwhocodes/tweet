@@ -32,6 +32,13 @@ if (process.env.TWEET_DOTENV === "1") {
  */
 const message = process.argv[2].replace(/\\n/g, "\n");
 
+const environmentVariables = [
+    "TWITTER_ACCESS_TOKEN_KEY",
+    "TWITTER_ACCESS_TOKEN_SECRET",
+    "TWITTER_CONSUMER_KEY",
+    "TWITTER_CONSUMER_SECRET"
+];
+
 //-----------------------------------------------------------------------------
 // Main
 //-----------------------------------------------------------------------------
@@ -42,7 +49,25 @@ tweet(message, process.env)
         if (error.message) {
             console.error(error.message);
         } else {
+            
             console.dir(error);
+
+            if (Array.isArray(error)) {
+                const firstError = error[0];
+
+                if (firstError.code === 215) {
+                    console.error(`
+This error is likely caused by invalid authentication information. Please check
+that you have configured your environment variables with the correct values.
+Here are the lengths of the environment variables provided for reference:\n`);
+                    
+                    for (const environmentVariable of environmentVariables) {
+                        console.error(environmentVariable, environmentVariable.length);
+                    }
+
+                }
+            }
+
         }
         process.exit(1);
     });
