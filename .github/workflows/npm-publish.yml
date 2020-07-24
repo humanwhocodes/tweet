@@ -39,8 +39,9 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@humanwhocodes'
-      - run: npm ci
-      - run: npm publish --access public
+      - run: |
+          npm ci
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
