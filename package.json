@@ -1,6 +1,6 @@
 {
   "name": "@humanwhocodes/tweet",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A CLI for tweeting out messages",
   "bin": "dist/bin.cjs.js",
   "files": [
