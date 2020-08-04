@@ -65,7 +65,7 @@ jobs:
 3. Run `npm install`
 4. Run `npm test` to run tests
 
-### Troubleshooting
+## Troubleshooting
 
 **Console says "Required environment variable 'TWITTER_ACCESS_TOKEN_KEY' is an empty string."**
 
@@ -74,8 +74,6 @@ You haven't setup the correct environment variables for Tweet CLI. Double check 
 **GitHub Actions console says "Required environment variable 'TWITTER_ACCESS_TOKEN_KEY' is an empty string."**
 
 You're probably trying to use the Tweet CLI during the `pull_request` event. This won't work because secrets are not available when a pull request is from a fork. Try using the `pull_request_target` event instead. ([More information](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request_target))
-
-If this is happening, you are lik
 
 ## License and Copyright
 
