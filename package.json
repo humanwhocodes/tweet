@@ -45,7 +45,7 @@
     "rollup-plugin-babel-minify": "9.0.0"
   },
   "dependencies": {
-    "@humanwhocodes/env": "1.0.0",
+    "@humanwhocodes/env": "1.0.1",
     "dotenv": "8.2.0",
     "twitter": "1.7.1"
   }
