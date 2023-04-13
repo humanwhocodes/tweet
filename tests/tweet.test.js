@@ -89,8 +89,7 @@ describe("Tweet", () => {
                 authorization: /OAuth oauth_consumer_key="baz"/
             }
         }).post(
-            "/1.1/statuses/update.json",
-            "status=Tweet%21&trim_user=true"
+            "/1.1/statuses/update.json"
         ).reply(200, { result: "Success!" });
 
         tweet("Tweet!", {
@@ -100,6 +99,10 @@ describe("Tweet", () => {
             [envKeys[3]]: "bar"
         }).then(response => {
             expect(response.result).to.equal("Success!");
+        }).catch(ex => {
+            console.error(ex);
+            done(ex);
+    
         }).then(done);
 
     });

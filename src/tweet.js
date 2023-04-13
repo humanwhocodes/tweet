@@ -7,8 +7,8 @@
 // Imports
 //-----------------------------------------------------------------------------
 
-import Twitter from "twitter";
 import { Env } from "@humanwhocodes/env";
+import { TwitterApi } from "twitter-api-v2";
 
 //-----------------------------------------------------------------------------
 // Exports
@@ -29,15 +29,12 @@ export async function tweet(message, options = {}) {
         TWITTER_CONSUMER_SECRET
     } = env.required;
 
-    const client = new Twitter({
-        consumer_key: TWITTER_CONSUMER_KEY,
-        consumer_secret: TWITTER_CONSUMER_SECRET,
-        access_token_key: TWITTER_ACCESS_TOKEN_KEY,
-        access_token_secret: TWITTER_ACCESS_TOKEN_SECRET
+    const client = new TwitterApi({
+        appKey: TWITTER_CONSUMER_KEY,
+        appSecret: TWITTER_CONSUMER_SECRET,
+        accessToken: TWITTER_ACCESS_TOKEN_KEY,
+        accessSecret: TWITTER_ACCESS_TOKEN_SECRET
     });
 
-    return client.post("statuses/update.json", {
-        status: message,
-        trim_user: true
-    });
+    return client.v1.tweet(message);
 }
