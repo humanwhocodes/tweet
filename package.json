@@ -14,11 +14,19 @@
   "engines": {
     "node": ">=18"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "lint": "eslint src/ tests/",
-    "test": "npm run lint && mocha tests/ --recursive"
+    "test": "mocha tests/ --recursive"
   },
   "repository": {
     "type": "git",
@@ -42,9 +50,11 @@
   "devDependencies": {
     "chai": "4.2.0",
     "eslint": "8.28.0",
+    "lint-staged": "^13.2.1",
     "mocha": "8.2.0",
     "nock": "13.3.0",
-    "rollup": "1.20.3"
+    "rollup": "1.20.3",
+    "yorkie": "^2.0.0"
   },
   "dependencies": {
     "@humanwhocodes/env": "^2.2.2",
