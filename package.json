@@ -2,7 +2,8 @@
   "name": "@humanwhocodes/tweet",
   "version": "0.2.4",
   "description": "A CLI for tweeting out messages",
-  "bin": "dist/bin.cjs.js",
+  "type": "module",
+  "bin": "dist/bin.js",
   "files": [
     "dist",
     "LICENSE"
@@ -17,7 +18,7 @@
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "lint": "eslint src/ tests/",
-    "test": "npm run lint && mocha -r esm tests/ --recursive"
+    "test": "npm run lint && mocha tests/ --recursive"
   },
   "repository": {
     "type": "git",
