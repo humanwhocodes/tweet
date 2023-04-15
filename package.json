@@ -1,6 +1,6 @@
 {
   "name": "@humanwhocodes/tweet",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "description": "A CLI for tweeting out messages",
   "type": "module",
   "bin": "dist/bin.js",
