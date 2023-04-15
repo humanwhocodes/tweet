@@ -38,7 +38,7 @@ function exec(command, env) {
 // Tests
 //-----------------------------------------------------------------------------
 
-describe("Tweet", () => {
+describe("bin", () => {
     describe("Errors", () => {
         
         it("should error when environment variables are missing", () => {

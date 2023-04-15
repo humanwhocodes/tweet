@@ -48,11 +48,12 @@ tweet(message, process.env)
     .catch(error => {
         if (error.message) {
             console.error(error.message);
+            console.dir(error);
         } else {
             
             console.dir(error);
 
-            if (Array.isArray(error)) {
+            if (Array.isArray(error)) {     // v1.1
                 const firstError = error[0];
 
                 if (firstError.code === 215) {

@@ -33,6 +33,10 @@ $ npx @humanwhocodes/tweet "Hello from the command line!"
 
 If successful, the CLI will output the response from Twitter.
 
+### Setting Twitter API version
+
+By default, Tweet uses v2 of the Twitter API. If you'd like to use v1.1 of the Twitter API instead, set the `TWITTER_API_VERSION` environment variable to `v1`.
+
 ### Testing with dotenv
 
 If you'd like to test with [`dotenv`](https://npmjs.com/package/dotenv), define an additional environment variable `TWEET_DOTENV=1` before executing the CLI. This will cause a local `.env` file to be read before executing.
@@ -47,9 +51,9 @@ jobs:
     name: Tweet Something
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 18
       - run: 'npx @humanwhocodes/tweet "Your tweet text"'
         env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}

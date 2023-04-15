@@ -72,6 +72,20 @@ describe("Tweet", () => {
             
         });
         
+        it("should error when an invalid API version is set", (done) => {
+            
+            tweet(message, {
+                [envKeys[0]]: "foo",
+                [envKeys[1]]: "bar",
+                [envKeys[2]]: "baz",
+                [envKeys[3]]: "bar",
+                TWITTER_API_VERSION: "foo"
+            }).catch(ex => {
+                expect(ex.message).to.match(/Invalid API version: foo/);
+            }).then(done);
+            
+        });
+        
         it("should error when there is no message to tweet", (done) => {
             
             tweet(undefined).catch(ex => {
@@ -82,7 +96,7 @@ describe("Tweet", () => {
         
     });
 
-    it("should send a tweet when there's a message and environment variables", done => {
+    it("v1.1: should send a tweet when there's a message and environment variables", done => {
 
         nock("https://api.twitter.com", {
             reqheaders: {
@@ -96,13 +110,39 @@ describe("Tweet", () => {
             [envKeys[0]]: "foo",
             [envKeys[1]]: "bar",
             [envKeys[2]]: "baz",
-            [envKeys[3]]: "bar"
+            [envKeys[3]]: "bar",
+            TWITTER_API_VERSION: "v1"
+        }).then(response => {
+            expect(response.result).to.equal("Success!");
+        }).catch(ex => {
+            console.error(ex);
+            throw ex;
+    
+        }).then(done);
+
+    });
+
+    it("v2: should send a tweet when there's a message and environment variables", done => {
+
+        nock("https://api.twitter.com", {
+            reqheaders: {
+                authorization: (/OAuth oauth_consumer_key="baz"/)
+            }
+        }).post(
+            "/2/tweets"
+        ).reply(200, { result: "Success!" });
+
+        tweet("Tweet!", {
+            [envKeys[0]]: "foo",
+            [envKeys[1]]: "bar",
+            [envKeys[2]]: "baz",
+            [envKeys[3]]: "bar",
+            TWITTER_API_VERSION: "v2"
         }).then(response => {
             expect(response.result).to.equal("Success!");
         }).catch(ex => {
             console.error(ex);
             done(ex);
-    
         }).then(done);
 
     });
