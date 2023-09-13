@@ -57,7 +57,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "@humanwhocodes/env": "^2.2.2",
+    "@humanwhocodes/env": "^3.0.0",
     "dotenv": "^16.0.3",
     "twitter-api-v2": "^1.14.2"
   }
