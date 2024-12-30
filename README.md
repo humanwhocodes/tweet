@@ -1,10 +1,7 @@
-# Tweet CLI
+# Tweet CLI (Deprecated)
 
-by [Nicholas C. Zakas](https://humanwhocodes.com)
-
-![Node CI](https://github.com/humanwhocodes/tweet/workflows/Node%20CI/badge.svg)
-
-If you find this useful, please consider supporting my work with a [donation](https://humanwhocodes.com/donate).
+> [!IMPORTANT]
+> This project is no longer being maintained. Please use [Crosspost](https://github.com/humanwhocodes.com/crosspost) instead.
 
 ## Description
 
